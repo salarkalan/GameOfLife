@@ -65,9 +65,20 @@ public class GameOfLife extends JFrame {
         panel = new GameOfLifePanel(this);
         add(panel, BorderLayout.CENTER);
 
+        JPanel buttonPanel = new JPanel();
         JButton startButton = new JButton("Start");
         startButton.addActionListener(e -> startEvolution());
-        add(startButton, BorderLayout.SOUTH);
+        buttonPanel.add(startButton);
+
+        JButton stopButton = new JButton("Stop");
+        stopButton.addActionListener(e -> stopEvolution());
+        buttonPanel.add(stopButton);
+
+        JButton restartButton = new JButton("Restart");
+        restartButton.addActionListener(e -> restartGame());
+        buttonPanel.add(restartButton);
+
+        add(buttonPanel, BorderLayout.SOUTH);
 
         setVisible(true);
     }
@@ -78,6 +89,18 @@ public class GameOfLife extends JFrame {
             panel.repaint();
         });
         timer.start();
+    }
+
+    private void stopEvolution() {
+        if (timer != null) {
+            timer.stop();
+        }
+    }
+
+    private void restartGame() {
+        stopEvolution();
+        initializeGrid();
+        panel.repaint();
     }
 
     public Cell[][] getGrid() {
