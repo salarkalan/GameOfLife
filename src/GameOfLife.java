@@ -1,3 +1,9 @@
+/*
+ * The GameOfLife Class Contains the grid of cells.
+ * It handles initialization, updates, and display of the grid.
+ * and implements the rules of the Game of Life.
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
