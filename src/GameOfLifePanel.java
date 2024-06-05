@@ -1,3 +1,8 @@
+/*
+ * The GameOfLifePanel Class Extends JPanel and handles the drawing of the grid.
+ * It Uses Timer for periodic updates.
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -7,6 +12,7 @@ public class GameOfLifePanel extends JPanel {
     private GameOfLife game;
     private final int CELL_SIZE = 10;
 
+    // The main grid and the Mouse integration
     public GameOfLifePanel(GameOfLife game) {
         this.game = game;
         addMouseListener(new MouseAdapter() {
