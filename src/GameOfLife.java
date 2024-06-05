@@ -84,6 +84,14 @@ public class GameOfLife extends JFrame {
         restartButton.addActionListener(e -> restartGame());
         buttonPanel.add(restartButton);
 
+        JButton simpleExampleButton = new JButton("Simple Example");
+        simpleExampleButton.addActionListener(e -> setSimpleExample());
+        buttonPanel.add(simpleExampleButton);
+
+        JButton complexExampleButton = new JButton("Complex Example");
+        complexExampleButton.addActionListener(e -> setComplexExample());
+        buttonPanel.add(complexExampleButton);
+
         add(buttonPanel, BorderLayout.SOUTH);
 
         setVisible(true);
@@ -106,6 +114,62 @@ public class GameOfLife extends JFrame {
     private void restartGame() {
         stopEvolution();
         initializeGrid();
+        panel.repaint();
+    }
+
+    private void setSimpleExample() {
+        restartGame();
+        grid[1][2].setAlive(true);
+        grid[2][3].setAlive(true);
+        grid[3][1].setAlive(true);
+        grid[3][2].setAlive(true);
+        grid[3][3].setAlive(true);
+        panel.repaint();
+    }
+
+    private void setComplexExample() {
+        restartGame();
+        // Gosper Glider Gun example
+        grid[5][1].setAlive(true);
+        grid[5][2].setAlive(true);
+        grid[6][1].setAlive(true);
+        grid[6][2].setAlive(true);
+
+        grid[5][11].setAlive(true);
+        grid[6][11].setAlive(true);
+        grid[7][11].setAlive(true);
+        grid[4][12].setAlive(true);
+        grid[8][12].setAlive(true);
+        grid[3][13].setAlive(true);
+        grid[9][13].setAlive(true);
+        grid[3][14].setAlive(true);
+        grid[9][14].setAlive(true);
+        grid[6][15].setAlive(true);
+        grid[4][16].setAlive(true);
+        grid[8][16].setAlive(true);
+        grid[5][17].setAlive(true);
+        grid[6][17].setAlive(true);
+        grid[7][17].setAlive(true);
+        grid[6][18].setAlive(true);
+
+        grid[3][21].setAlive(true);
+        grid[4][21].setAlive(true);
+        grid[5][21].setAlive(true);
+        grid[3][22].setAlive(true);
+        grid[4][22].setAlive(true);
+        grid[5][22].setAlive(true);
+        grid[2][23].setAlive(true);
+        grid[6][23].setAlive(true);
+        grid[1][25].setAlive(true);
+        grid[2][25].setAlive(true);
+        grid[6][25].setAlive(true);
+        grid[7][25].setAlive(true);
+
+        grid[3][35].setAlive(true);
+        grid[4][35].setAlive(true);
+        grid[3][36].setAlive(true);
+        grid[4][36].setAlive(true);
+
         panel.repaint();
     }
 
